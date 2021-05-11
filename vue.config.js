@@ -12,8 +12,14 @@ module.exports = {
           options: {
             networkTimeoutSeconds: 5
           },
-          urlPattern:
-            'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1sparkline=false'
+          urlPattern: /^https:\/\/api\.coingecko\.com\/api\/v3\/coins\/.*/
+        },
+        {
+          handler: 'NetworkFirst',
+          options: {
+            networkTimeoutSeconds: 5
+          },
+          urlPattern: 'https://api.coingecko.com/api/v3/search/trending'
         }
       ]
     }
