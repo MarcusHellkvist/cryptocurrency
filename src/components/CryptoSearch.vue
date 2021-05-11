@@ -234,7 +234,7 @@
     watch: {
       query(newValue, oldValue) {
         console.log(`old: ${oldValue} - new: ${newValue}`)
-        //this.onSearchCoin() -- real-time search
+        //this.onSearchCoin() -- skulle kunna användas för real-time search
       }
     }
   }

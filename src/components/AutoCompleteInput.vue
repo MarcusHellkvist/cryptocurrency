@@ -32,7 +32,9 @@
     methods: {
       lookupUser: debounce(function() {
         // in practice this action should be debounced
-        //'https://api.coingecko.com/api/v3/coins/' + this.query
+        //https://api.coingecko.com/api/v3/coins/${this.query}
+        // https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin&order=market_cap_desc&per_page=10&page=1&sparkline=false
+        // https://api.github.com/search/users?q=${this.query}
         fetch(`https://api.github.com/search/users?q=${this.query}`)
           .then((response) => {
             return response.json()
