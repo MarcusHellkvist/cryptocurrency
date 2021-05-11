@@ -6,12 +6,10 @@
     <div class="alert alert-danger" role="alert" v-if="dataEvent === false">
       <strong>{{ dataQuery }} </strong>could not be found!
     </div>
-    <auto-complete-input></auto-complete-input>
   </div>
 </template>
 
 <script>
-  import AutoCompleteInput from '../components/AutoCompleteInput.vue'
   // @ is an alias to /src
   import CryptoSearch from '../components/CryptoSearch.vue'
 
@@ -24,8 +22,7 @@
     },
     name: 'Home',
     components: {
-      CryptoSearch,
-      AutoCompleteInput
+      CryptoSearch
     },
     methods: {
       onDataFetch: function(data, query) {

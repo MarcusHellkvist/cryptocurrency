@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <my-navigation></my-navigation>
-    <p v-if="isOnline">You are currently: ONLINE</p>
-    <p v-if="isOffline">You are currently OFFLINE</p>
+    <p class="network-paragraph">{{ networkStatus }}</p>
     <router-view />
   </div>
 </template>
@@ -29,5 +28,9 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+  }
+
+  .network-paragraph {
+    margin-top: 50px;
   }
 </style>

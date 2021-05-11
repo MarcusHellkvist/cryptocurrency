@@ -63,7 +63,7 @@
             }}</small>
 
             <button
-              type="submit"
+              type="button"
               @click="buy"
               class="btn btn-primary"
               :disabled="isDisable"
