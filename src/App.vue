@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <my-navigation></my-navigation>
-    <p class="network-paragraph">{{ networkStatus }}</p>
-    <router-view />
+    <router-view class="top-margin" />
   </div>
 </template>
 
@@ -10,11 +9,6 @@
   import MyNavigation from '@/components/MyNavigation.vue'
 
   export default {
-    computed: {
-      networkStatus() {
-        return this.isOnline ? 'My network is fine' : 'I am offline'
-      }
-    },
     components: {
       MyNavigation
     }
@@ -30,7 +24,7 @@
     color: #2c3e50;
   }
 
-  .network-paragraph {
-    margin-top: 50px;
+  .top-margin {
+    margin-top: 100px;
   }
 </style>

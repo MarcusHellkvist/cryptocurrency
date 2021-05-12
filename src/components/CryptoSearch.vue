@@ -18,7 +18,7 @@
         </button>
       </div>
     </div>
-    <p class="small-text">Trending: {{ showTrending }}</p>
+    <p class="small-text"><strong>Trending</strong>: {{ showTrending }}</p>
     <div class="card text-left" v-if="coin !== null">
       <div class="card-body">
         <div class="row mb-2">
@@ -47,7 +47,7 @@
           :options="options"
           v-if="hasLoaded"
         ></chart>
-        <p class="card-text">Last updated: {{ coin.last_updated }}</p>
+        <p class="card-text">Last updated: {{ trimTimeString }}</p>
         <form class="needs-validation">
           <div class="form-group p-2 col">
             <label for="buyInput">I want to buy {{ coin.id }} for</label>
@@ -102,6 +102,10 @@
       trimDescString() {
         let findCharacter = this.coin.description.en.indexOf('.')
         return this.coin.description.en.slice(0, findCharacter) + '.'
+      },
+      trimTimeString() {
+        let trimmedString = this.coin.last_updated.replace('T', ' ')
+        return trimmedString.slice(0, -5)
       },
       isDisable() {
         return (
@@ -240,8 +244,10 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  $small-font-size: small;
+
   .small-text {
-    font-size: small;
+    font-size: $small-font-size;
   }
 </style>
