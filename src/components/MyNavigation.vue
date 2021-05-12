@@ -1,48 +1,29 @@
 <template>
-  <div class="container">
-    <nav class="navbar navbar-expand-md navbar-light">
-      <a class="navbar-brand" href="#">
-        <img
+  <div>
+    <b-navbar toggleable="sm" type="light" variant="light">
+      <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
+
+      <b-navbar-brand to="/"
+        ><img
           src="../assets/crypto-logo.svg"
+          class="d-inline-block align-top"
+          alt="Logo"
           width="30"
           height="30"
-          class="d-inline-block align-top"
-          alt=""
         />
-        Cryptocurrency
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#toggleMobileMenu"
-        aria-controls="toggleMobileMenu"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+        Cryptocurrency</b-navbar-brand
       >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="toggleMobileMenu">
-        <ul class="navbar-nav">
-          <li><router-link class="nav-link" to="/">Home</router-link></li>
-          <li>
-            <router-link class="nav-link" to="/popular"
-              >Popular Coins</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              class="nav-link"
-              :to="{
-                name: 'Wallet',
-                params: { userName: this.$store.state.signedInUser }
-              }"
-              >My Wallet</router-link
-            >
-          </li>
-          <li class="nav-link">${{ $store.state.money }}</li>
-        </ul>
-      </div>
-    </nav>
+
+      <b-collapse id="nav-text-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item to="/">Home</b-nav-item>
+          <b-nav-item to="/popular">Popular Coins</b-nav-item>
+          <b-nav-item :to="$store.state.signedInUser">Wallet</b-nav-item>
+        </b-navbar-nav>
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item> ${{ $store.state.money }} USD </b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
   </div>
 </template>

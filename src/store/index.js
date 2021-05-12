@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    signedInUser: 'Guest',
+    signedInUser: '/wallet/Guest',
     money: 100000,
     userWallet: []
   },
